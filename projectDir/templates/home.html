@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{%block content%}
+
+<h1> Hello {{name}} !!! </h1>
+<form action = 'publish' method = 'post'>
+    {% csrf_token %}
+    Enter topic name: <input type = 'text' name = 'topic'> <br>
+    Enter message: <input type = 'text' name = 'message'> <br>
+    <input type = 'submit'>
+</form>
+{%endblock%}
+
+{%block subscribeContent%}
+
+<h1> Subscribe to topics </h1>
+<form action = 'subscribe' method = 'post'>
+    {% csrf_token %}
+    Enter topic name: <input type = 'text' name = 'topic'> <br>
+    <input type = 'submit'>
+</form>
+{%endblock%}
+
+{%block result%}
+    <br>published {{msg}} to {{topic}}
+{%endblock%}
